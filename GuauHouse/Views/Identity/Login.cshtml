@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "_LayoutLogin";
+}
+
+<main class="form-signin">
+    <form method="post" class="mt-5">
+        <a asp-controller="Home" asp-action="Index">
+            <img class="mb-4" src="~/images/logoblanco.gif" alt="" width="150" height="150">
+        </a>
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Nombre de usuario" required autofocus><br />
+        <input type="text" name="password" id="inputPassword" class="form-control" placeholder="Password" required><br />
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </form>
+    <br />
+    <a asp-controller="Identity" asp-action="Registro" class="btn btn-info">Registar</a>
+    <p class="mt-5 mb-3 text-muted">&copy; Guau House 2021</p>
+    <br /><br />
+    <h1 style="color: red">@ViewData["mensaje"]</h1>
+</main>
