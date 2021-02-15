@@ -9,30 +9,16 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/navbar.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: rgba(240, 248, 255, 0.55)">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Guau House</a>
+            <partial name="_PartialViewLogoLayout" />
+            @*<a class="navbar-brand" asp-controller="Home" asp-action="Index">Guau House</a>*@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#minavbar" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse mx-auto" id="minavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">Nuestra guardería</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Quiénes somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Tarifas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Contacto</a>
-                    </li>
-                    @*<li class="nav-item">
-                        <a class="nav-link" asp-controller="Users" asp-action="Reserva">Reserva ahora!</a>
-                    </li>*@
                     <partial name="_PartialViewMenu" />
                 </ul>
                 <partial name="_PartialViewBotonUsuario" />

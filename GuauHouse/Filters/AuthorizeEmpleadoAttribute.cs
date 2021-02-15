@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GuauHouse.Filters
 {
-    public class AuthorizeValidationAttribute : AuthorizeAttribute, IAuthorizationFilter
+    public class AuthorizeEmpleadoAttribute : AuthorizeAttribute, IAuthorizationFilter
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
@@ -18,21 +18,13 @@ namespace GuauHouse.Filters
             {
                 context.Result = this.GetRedirectToRoute("Identity", "Login");
             }
-            //else
-            //{
-            //    if (user.IsInRole("1"))
-            //    {
-            //        context.Result = this.GetRedirectToRoute("Users", "IndexAdmin");
-            //    }
-            //    if (user.IsInRole("2"))
-            //    {
-            //        context.Result = this.GetRedirectToRoute("Users", "Perfil");
-            //    }
-            //    if (user.IsInRole("3"))
-            //    {
-            //        context.Result = this.GetRedirectToRoute("Home", "Index");
-            //    }
-            //}
+            else
+            {
+                if (!user.IsInRole("3"))
+                {
+                    context.Result = this.GetRedirectToRoute("Identity", "AccesoDenegado");
+                }
+            }
         }
 
         public RedirectToRouteResult GetRedirectToRoute(String controller, String action)

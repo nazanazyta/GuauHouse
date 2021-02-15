@@ -85,3 +85,7 @@ G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Partial
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\Perfil.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\Reserva.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\DatosUser.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\GuauHouse.csprojAssemblyReference.cache
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\IndexAdmin.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\IndexEmpleado.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialViewLogoLayout.cshtml.g.cs

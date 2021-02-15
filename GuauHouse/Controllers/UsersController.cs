@@ -24,18 +24,19 @@ namespace GuauHouse.Controllers
             this.upload = upload;
         }
 
-        [AuthorizeValidation]
+        [AuthorizeUser]
         public IActionResult Perfil()
         {
             return View(this.repo.GetPerrosUserName(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
         }
 
-        [AuthorizeValidation]
+        [AuthorizeUser]
         public IActionResult DatosUser()
         {
             return View(this.repo.GetUserByUserName(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
         }
 
+        [AuthorizeUser]
         [HttpPost]
         public async Task<IActionResult> DatosUser(IFormFile fichero, User user)
         {
@@ -50,9 +51,20 @@ namespace GuauHouse.Controllers
             return View(this.repo.GetUserByUserName(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
         }
 
-        //[AuthorizeValidation]
-        //[Authorize(Policy = "SoloUsuarios")]
-        public IActionResult Reserva()
+        //[AuthorizeUser]
+        //public IActionResult Reserva()
+        //{
+        //    return View();
+        //}
+
+        [AuthorizeAdmin]
+        public IActionResult IndexAdmin()
+        {
+            return View();
+        }
+
+        [AuthorizeEmpleado]
+        public IActionResult IndexEmpleado()
         {
             return View();
         }

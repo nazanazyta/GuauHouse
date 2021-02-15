@@ -57,7 +57,18 @@ namespace GuauHouse.Controllers
                         IsPersistent = true,
                         ExpiresUtc = DateTime.Now.AddSeconds(15)
                     });
-                return RedirectToAction("Perfil", "Users");
+                if (principal.IsInRole("1"))
+                {
+                    return RedirectToAction("IndexAdmin", "Users");
+                }
+                else if (principal.IsInRole("2"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("IndexEmpleado", "Users");
+                }
             }
         }
 

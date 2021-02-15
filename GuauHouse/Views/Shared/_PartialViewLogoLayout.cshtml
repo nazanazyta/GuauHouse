@@ -1,0 +1,16 @@
+﻿@if (User.IsInRole("1"))
+{
+    <a class="navbar-brand" asp-controller="Users" asp-action="IndexAdmin">Guau House</a>
+}
+else if (User.IsInRole("2"))
+{
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index">Guau House</a>
+}
+else if (User.IsInRole("3"))
+{
+    <a class="navbar-brand" asp-controller="Users" asp-action="IndexEmpleado">Guau House</a>
+}
+else
+{
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index">Guau House</a>
+}
