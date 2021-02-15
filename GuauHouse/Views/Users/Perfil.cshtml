@@ -1,3 +1,53 @@
-﻿<h1>Perfil de Usuario</h1>
-
-<h3>Bienvenido/a @Context.User.Identity.Name</h3>
+﻿@model List<Perro>
+<h1 style="color: blueviolet" class="mb-5">Zona personal de @Context.User.Identity.Name</h1>
+@if (Context.User.IsInRole("2"))
+{
+    <div class="card-deck" style="display: flex">
+        <div class="card col-3 mx-auto">
+            <img class="card-img-top" src="~/images/datos.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Datos Personales</h5>
+                <p class="card-text">Aquí puedes editar todos tus datos de perfil</p>
+                <a asp-controller="Users" asp-action="DatosUser" class="btn btn-primary">Editar perfil</a>
+            </div>
+        </div>
+        <div class="card col-3 mx-auto">
+            <img class="card-img-top" src="~/images/perros2.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Perros</h5>
+                <p class="card-text">Zona para editar los datos de tus queridos amigos :)</p>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mis perros
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        @foreach (Perro perro in Model)
+                        {
+                            <li><a asp-controller="Perros" asp-action="DatosPerro"
+                                   asp-route-idperro="@perro.IdPerro"
+                                   class="dropdown-item">@perro.Nombre</a></li>
+                        }
+                        @*<li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card col-3 mx-auto">
+            <img class="card-img-top" src="~/images/reservas2.jpg">
+            <div class="card-body">
+                <h5 class="card-title">Reservas</h5>
+                <p class="card-text">Revisa o edita tus reservas</p>
+            </div>
+        </div>
+    </div>
+}
+else if (Context.User.IsInRole("1"))
+{
+    <h1>Admin</h1>
+}
+else if (Context.User.IsInRole("3"))
+{
+    <h1>Empleado</h1>
+}

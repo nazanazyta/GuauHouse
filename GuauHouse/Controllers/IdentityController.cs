@@ -36,13 +36,19 @@ namespace GuauHouse.Controllers
             }
             else
             {
+                List<Claim> lista = new List<Claim>();
+                lista.Add(new Claim(ClaimTypes.NameIdentifier, username));
+                lista.Add(new Claim(ClaimTypes.Name, user.Nombre));
+                lista.Add(new Claim(ClaimTypes.Role, user.Rol.ToString()));
+                //lista.Add(new Claim(ClaimTypes.Email, user.Email));
                 ClaimsIdentity identity =
                     new ClaimsIdentity
-                    (CookieAuthenticationDefaults.AuthenticationScheme
+                    (lista, CookieAuthenticationDefaults.AuthenticationScheme
                     , ClaimTypes.Name, ClaimTypes.Role);
-                identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, username));
-                identity.AddClaim(new Claim(ClaimTypes.Name, user.Nombre));
-                identity.AddClaim(new Claim(ClaimTypes.Role, user.Rol.ToString()));
+                //identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, username));
+                //identity.AddClaim(new Claim(ClaimTypes.Name, user.Nombre));
+                //identity.AddClaim(new Claim(ClaimTypes.Role, user.Rol.ToString()));
+                //identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme
                     , principal
@@ -78,11 +84,13 @@ namespace GuauHouse.Controllers
             {
                 User u = this.repo.InsertUser(user);
                 ViewData["mensaje"] = "Usuario registrado correctamente";
+                ViewData["color"] = "aquamarine";
                 return View();
             }
             else
             {
                 ViewData["mensaje"] = "Ese usuario ya existe";
+                ViewData["color"] = "lightcoral";
                 return View();
             }
         }

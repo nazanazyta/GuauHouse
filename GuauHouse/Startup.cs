@@ -1,4 +1,5 @@
 using GuauHouse.Data;
+using GuauHouse.Helpers;
 using GuauHouse.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -26,7 +27,8 @@ namespace GuauHouse
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //casasqlnaza
+            services.AddSingleton<PathProvider>();
+            services.AddSingleton<UploadService>();
             services.AddAuthentication(
                 options =>
                 {
@@ -37,6 +39,11 @@ namespace GuauHouse
                     options.DefaultSignInScheme =
                         CookieAuthenticationDefaults.AuthenticationScheme;
                 }).AddCookie();
+            //services.AddAuthorization(
+            //    options =>
+            //    {
+            //        options.AddPolicy("SoloUsuarios", policy => policy.RequireRole("2"));
+            //    });
             services.AddTransient<IRepositoryGuauHouse, RepositoryGuauHouseSQL>();
             services.AddDbContext<GuauHouseContext>
                 (options => options.UseSqlServer(this.Configuration.GetConnectionString("casasqlnaza")));

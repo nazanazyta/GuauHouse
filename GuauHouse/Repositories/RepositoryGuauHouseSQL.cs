@@ -16,13 +16,6 @@ namespace GuauHouse.Repositories
             this.context = context;
         }
 
-        #region USUARIOS
-        public User ValidateUser(String username, String password)
-        {
-            return this.context.Usuarios
-                .SingleOrDefault(x => x.UserName == username && x.Password == password);
-        }
-
         public int GetMaxId(String tabla)
         {
             if (tabla == "Usuarios")
@@ -35,7 +28,8 @@ namespace GuauHouse.Repositories
                 }
                 return (from datos in this.context.Usuarios
                         select datos.IdUsuario).Max() + 1;
-            }else if (tabla == "Perros")
+            }
+            else if (tabla == "Perros")
             {
                 return 1;
             }
@@ -43,6 +37,13 @@ namespace GuauHouse.Repositories
             {
                 return 1;
             }
+        }
+
+        #region USUARIOS
+        public User ValidateUser(String username, String password)
+        {
+            return this.context.Usuarios
+                .SingleOrDefault(x => x.UserName == username && x.Password == password);
         }
 
         public User InsertUser(User user)
@@ -57,6 +58,27 @@ namespace GuauHouse.Repositories
         public User GetUserByUserName(String username)
         {
             return this.context.Usuarios.SingleOrDefault(x => x.UserName == username);
+        }
+
+        public User EditUser(User user)
+        {
+            this.context.SaveChanges();
+            return null;
+        }
+        #endregion
+
+        #region PERROS
+        public List<Perro> GetPerrosUserName(String username)
+        {
+            //this.context.Usuarios.Where(x => x.UserName == username).Select(z => z.IdUsuario);
+            //return this.context.Perros.Where(x => x.IdUsu == iduser).Select(z => z.Nombre).ToList();
+            int id = this.context.Usuarios.SingleOrDefault(x => x.UserName == username).IdUsuario;
+            return this.context.Perros.Where(z => z.IdUsu == id).ToList();
+            //return this.context.Perros.Where(x => x.IdUsu == 
+            //    (this.context.Usuarios.Where(z => z.UserName == username).Select(y => y.IdUsuario)));
+            //return (from datos in this.context.Perros
+            //        where datos.IdUsu == iduser
+            //        select datos.Nombre).ToList();
         }
         #endregion
     }

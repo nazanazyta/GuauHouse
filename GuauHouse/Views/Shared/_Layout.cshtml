@@ -16,7 +16,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#minavbar" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            @*<partial name="_PartialViewMenu" />*@
             <div class="collapse navbar-collapse mx-auto" id="minavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item active">
@@ -31,11 +30,12 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Users" asp-action="Perfil">Perfil</a>
-                    </li>
-                    <partial name="_PartialViewBotonUsuario" />
+                    @*<li class="nav-item">
+                        <a class="nav-link" asp-controller="Users" asp-action="Reserva">Reserva ahora!</a>
+                    </li>*@
+                    <partial name="_PartialViewMenu" />
                 </ul>
+                <partial name="_PartialViewBotonUsuario" />
             </div>
         </div>
     </nav>

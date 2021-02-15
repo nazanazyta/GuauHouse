@@ -12,5 +12,7 @@ namespace GuauHouse.Repositories
         int GetMaxId(String tabla);
         User InsertUser(User user);
         User GetUserByUserName(String username);
+        List<Perro> GetPerrosUserName(String username);
+        User EditUser(User user);
     }
 }

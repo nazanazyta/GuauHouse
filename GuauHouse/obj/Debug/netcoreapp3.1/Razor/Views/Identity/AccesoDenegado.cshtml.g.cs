@@ -26,8 +26,15 @@ using GuauHouse.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "G:\Repos\GuauHouse\GuauHouse\Views\_ViewImports.cshtml"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"91a3dc6e4ec0a7d3aeba78ee1d15f2fb9b047d1e", @"/Views/Identity/AccesoDenegado.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"aae389e1516453a9e30bc36cbe41aa8507bdc2c7", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d2e4a3ea70e0334d317a1ad6c3fe5006098ecb97", @"/Views/_ViewImports.cshtml")]
     public class Views_Identity_AccesoDenegado : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -57,7 +64,7 @@ using GuauHouse.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<h1 style=\"color: red\">No tiene permisos para acceder a esta zona</h1>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91a3dc6e4ec0a7d3aeba78ee1d15f2fb9b047d1e3724", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91a3dc6e4ec0a7d3aeba78ee1d15f2fb9b047d1e3890", async() => {
                 WriteLiteral("Volver");
             }
             );

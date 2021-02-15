@@ -8,7 +8,6 @@ G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\GuauHouse.dll
 G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\GuauHouse.pdb
 G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\GuauHouse.Views.dll
 G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\GuauHouse.Views.pdb
-G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\GuauHouse.csprojAssemblyReference.cache
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\GuauHouse.AssemblyInfoInputs.cache
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\GuauHouse.AssemblyInfo.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\GuauHouse.csproj.CoreCompileInputs.cache
@@ -77,4 +76,12 @@ G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Identity\Login.
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialViewBotonUsuario.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Identity\Registro.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialViewMenu.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\Perfil.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\Reserva.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\DatosUser.cshtml.g.cs
