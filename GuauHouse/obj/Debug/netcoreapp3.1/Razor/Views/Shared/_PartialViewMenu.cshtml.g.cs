@@ -28,13 +28,20 @@ using GuauHouse.Models;
 #nullable disable
 #nullable restore
 #line 3 "G:\Repos\GuauHouse\GuauHouse\Views\_ViewImports.cshtml"
+using GuauHouse.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "G:\Repos\GuauHouse\GuauHouse\Views\_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"62f6db9775de0914471ecbf3efd42b82da3f1c0f", @"/Views/Shared/_PartialViewMenu.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d2e4a3ea70e0334d317a1ad6c3fe5006098ecb97", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"33dfbb64b7a29e08de2a237c23eec46e551916dc", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__PartialViewMenu : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("nav-link"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -76,7 +83,7 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
             WriteLiteral("    <li class=\"nav-item active\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f5347", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f5508", async() => {
                 WriteLiteral("Nuestra guardería");
             }
             );
@@ -96,7 +103,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </li>\r\n    <li class=\"nav-item\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f6937", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f7098", async() => {
                 WriteLiteral("Quiénes somos");
             }
             );
@@ -115,7 +122,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </li>\r\n    <li class=\"nav-item\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f8440", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f8601", async() => {
                 WriteLiteral("Tarifas");
             }
             );
@@ -134,7 +141,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </li>\r\n    <li class=\"nav-item\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f9937", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f10098", async() => {
                 WriteLiteral("Contacto");
             }
             );
@@ -153,7 +160,7 @@ using System.Security.Claims;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </li>\r\n    <li class=\"nav-item\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f11435", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f11597", async() => {
                 WriteLiteral("Perfil");
             }
             );
@@ -189,7 +196,7 @@ else if (Context.User.Identity.IsAuthenticated == false)
 #line hidden
 #nullable disable
             WriteLiteral("    <li class=\"nav-item active\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f13333", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f13495", async() => {
                 WriteLiteral("Nuestra guardería");
             }
             );
@@ -209,7 +216,7 @@ else if (Context.User.Identity.IsAuthenticated == false)
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </li>\r\n    <li class=\"nav-item\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f14924", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f15086", async() => {
                 WriteLiteral("Quiénes somos");
             }
             );
@@ -228,7 +235,7 @@ else if (Context.User.Identity.IsAuthenticated == false)
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </li>\r\n    <li class=\"nav-item\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f16428", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f16590", async() => {
                 WriteLiteral("Tarifas");
             }
             );
@@ -247,7 +254,7 @@ else if (Context.User.Identity.IsAuthenticated == false)
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </li>\r\n    <li class=\"nav-item\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f17926", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f6db9775de0914471ecbf3efd42b82da3f1c0f18088", async() => {
                 WriteLiteral("Contacto");
             }
             );

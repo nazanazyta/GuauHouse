@@ -31,7 +31,14 @@ namespace GuauHouse.Repositories
             }
             else if (tabla == "Perros")
             {
-                return 1;
+                int id = (from datos in this.context.Perros
+                          select datos.IdPerro).Count();
+                if (id == 0)
+                {
+                    return 1;
+                }
+                return (from datos in this.context.Perros
+                        select datos.IdPerro).Max() + 1;
             }
             else
             {
@@ -60,10 +67,21 @@ namespace GuauHouse.Repositories
             return this.context.Usuarios.SingleOrDefault(x => x.UserName == username);
         }
 
+        public User GetUserById(int idusuario)
+        {
+            return this.context.Usuarios.Where(x => x.IdUsuario == idusuario).FirstOrDefault();
+        }
+
         public User EditUser(User user)
         {
+            User usuario = this.GetUserById(user.IdUsuario);
+            usuario.Nombre = user.Nombre;
+            usuario.Apellidos = user.Apellidos;
+            usuario.Dni = user.Dni;
+            usuario.Email = user.Email;
+            usuario.Telefono = user.Telefono;
             this.context.SaveChanges();
-            return null;
+            return usuario;
         }
         #endregion
 
@@ -79,6 +97,55 @@ namespace GuauHouse.Repositories
             //return (from datos in this.context.Perros
             //        where datos.IdUsu == iduser
             //        select datos.Nombre).ToList();
+        }
+
+        public List<Perro> GetPerrosIdUsuario(int idusuario)
+        {
+            return this.context.Perros.Where(z => z.IdUsu == idusuario).ToList();
+        }
+
+        public Perro GetPerroId(int idperro)
+        {
+            return this.context.Perros.Where(x => x.IdPerro == idperro).FirstOrDefault();
+        }
+
+        public Perro InsertarPerro(Perro perro)
+        {
+            perro.IdPerro = this.GetMaxId("Perros");
+            Perro p = this.context.Perros.Add(perro).Entity;
+            this.context.SaveChanges();
+            return p;
+            //user.IdUsuario = this.GetMaxId("Usuarios");
+            //user.Rol = 2;
+            //this.context.Usuarios.Add(user);
+            //this.context.SaveChanges();
+            //return user;
+        }
+
+        //public Perro InsertarPerro(int idusu, String nombre, String estatura)
+        //{
+        //    Perro perro = new Perro();
+        //    perro.IdPerro = this.GetMaxId("Perros");
+        //    perro.IdUsu = idusu;
+        //    perro.Nombre = nombre;
+        //    perro.Estatura = estatura;
+        //    Perro p = this.context.Perros.Add(perro).Entity;
+        //    this.context.SaveChanges();
+        //    return p;
+        //    //user.IdUsuario = this.GetMaxId("Usuarios");
+        //    //user.Rol = 2;
+        //    //this.context.Usuarios.Add(user);
+        //    //this.context.SaveChanges();
+        //    //return user;
+        //}
+
+        public Perro EditarPerro(Perro perro)
+        {
+            Perro p = this.GetPerroId(perro.IdPerro);
+            p.Nombre = perro.Nombre;
+            p.Estatura = perro.Estatura;
+            this.context.SaveChanges();
+            return p;
         }
         #endregion
     }

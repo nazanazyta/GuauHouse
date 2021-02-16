@@ -11,6 +11,7 @@ namespace GuauHouse.Models
     public class User
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column("ID")]
         public int IdUsuario { get; set; }
         [Column("USUARIO")]

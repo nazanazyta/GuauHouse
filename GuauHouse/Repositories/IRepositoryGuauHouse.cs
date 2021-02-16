@@ -8,11 +8,25 @@ namespace GuauHouse.Repositories
 {
     public interface IRepositoryGuauHouse
     {
-        User ValidateUser(String username, String password);
         int GetMaxId(String tabla);
+
+        #region USUARIOS
+
+        User ValidateUser(String username, String password);
         User InsertUser(User user);
         User GetUserByUserName(String username);
-        List<Perro> GetPerrosUserName(String username);
+        User GetUserById(int idusuario);
         User EditUser(User user);
+
+        #endregion
+
+        #region PERROS
+
+        List<Perro> GetPerrosUserName(String username);
+        Perro GetPerroId(int idperro);
+        Perro InsertarPerro(Perro perro);
+        Perro EditarPerro(Perro perro);
+
+        #endregion
     }
 }

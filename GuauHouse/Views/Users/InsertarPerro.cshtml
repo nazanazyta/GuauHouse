@@ -1,0 +1,15 @@
+﻿<div class="container-fluid w-25 mt-5">
+    <form method="post" enctype="multipart/form-data">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" /><br />
+        <label>Estatura</label>
+        <select name="estatura" class="form-control">
+            @foreach (String i in Enum.GetNames(typeof(Enumerations.Estaturas)))
+            {
+                <option value="@i">@i</option>
+            }
+        </select><br />
+        <input type="file" name="fichero" />
+        <button type="submit" class="btn btn-success">Nuevo</button>
+    </form>
+</div>

@@ -28,13 +28,20 @@ using GuauHouse.Models;
 #nullable disable
 #nullable restore
 #line 3 "G:\Repos\GuauHouse\GuauHouse\Views\_ViewImports.cshtml"
+using GuauHouse.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "G:\Repos\GuauHouse\GuauHouse\Views\_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c75ed6037246daf5ef0c349f9c1a750c137e0be4", @"/Views/Shared/_PartialViewLogoLayout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d2e4a3ea70e0334d317a1ad6c3fe5006098ecb97", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"33dfbb64b7a29e08de2a237c23eec46e551916dc", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__PartialViewLogoLayout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("navbar-brand"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -76,7 +83,7 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be45298", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be45459", async() => {
                 WriteLiteral("Guau House");
             }
             );
@@ -105,7 +112,7 @@ else if (User.IsInRole("2"))
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be46969", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be47130", async() => {
                 WriteLiteral("Guau House");
             }
             );
@@ -134,7 +141,7 @@ else if (User.IsInRole("3"))
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be48640", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be48801", async() => {
                 WriteLiteral("Guau House");
             }
             );
@@ -163,7 +170,7 @@ else
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be410288", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ed6037246daf5ef0c349f9c1a750c137e0be410449", async() => {
                 WriteLiteral("Guau House");
             }
             );

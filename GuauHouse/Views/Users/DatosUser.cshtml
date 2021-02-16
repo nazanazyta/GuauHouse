@@ -2,6 +2,12 @@
 <h1 style="color: cornflowerblue">Editar datos de @Context.User.Identity.Name</h1>
 <div class="container-fluid w-50 mt-5">
     <form method="post" style="text-align: left">
+        <input type="hidden" name="idusuario" value="@Model.IdUsuario" />
+        @*<input type="hidden" name="rol" value="@Model.Rol" />
+        <input type="hidden" name="username" value="@Model.UserName" />
+        <input type="hidden" name="password" value="@Model.Password" />
+        <input type="hidden" name="fechaalta" value="@Model.FechaAlta" />
+        <input type="hidden" name="imagen" value="@Model.Imagen" />*@
         <table class="table">
             <tr class="row">
                 <td class="col-5">
@@ -9,7 +15,8 @@
                     <label>@Model.Nombre</label>
                 </td>
                 <td class="col-5">
-                    <input type="text" name="nombre" class="form-control-sm" /><br />
+                    <input type="text" name="nombre" value="@Model.Nombre"
+                           placeholder="Nuevo nombre" class="form-control-sm" /><br />
                 </td>
             </tr>
             <tr class="row">
@@ -18,7 +25,7 @@
                     <label>@Model.Apellidos</label>
                 </td>
                 <td class="col-5">
-                    <input type="text" name="apellidos" class="form-control-sm" /><br />
+                    <input type="text" name="apellidos" value="@Model.Apellidos" class="form-control-sm" /><br />
                 </td>
             </tr>
             <tr class="row">
@@ -27,7 +34,7 @@
                     <label>@Model.Dni</label>
                 </td>
                 <td class="col-5">
-                    <input type="text" name="dni" class="form-control-sm" /><br />
+                    <input type="text" name="dni" value="@Model.Dni" class="form-control-sm" /><br />
                 </td>
             </tr>
             <tr class="row">
@@ -36,7 +43,7 @@
                     <label>@Model.Email</label>
                 </td>
                 <td class="col-5">
-                    <input type="text" name="email" class="form-control-sm" /><br />
+                    <input type="text" name="email" value="@Model.Email" class="form-control-sm" /><br />
                 </td>
             </tr>
             <tr class="row">
@@ -45,10 +52,10 @@
                     <label>@Model.Telefono</label>
                 </td>
                 <td class="col-5">
-                    <input type="text" name="telefono" class="form-control-sm" /><br />
+                    <input type="text" name="telefono" value="@Model.Telefono" class="form-control-sm" /><br />
                 </td>
             </tr>
-            <tr class="row">
+            @*<tr class="row">
                 <td class="col-5">
                     <label style="font-weight: bold">Imagen</label><br />
                     <img src="~/images/@Model.Imagen" style="width: 12rem; height: 12rem" />
@@ -56,7 +63,7 @@
                 <td class="col-5">
                     <input type="file" name="fichero" class="form-control-file" /><br />
                 </td>
-            </tr>
+            </tr>*@
         </table>
         <br /><br />
         @*<table class="table">

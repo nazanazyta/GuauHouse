@@ -22,12 +22,15 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     @foreach (Perro perro in Model)
                     {
-                        <li><a asp-controller="Perros" asp-action="DatosPerro"
-                                asp-route-idperro="@perro.IdPerro"
-                                class="dropdown-item">@perro.Nombre</a></li>
+                        <li>
+                            <a asp-controller="Users" asp-action="DatosPerro"
+                               asp-route-idperro="@perro.IdPerro"
+                               class="dropdown-item">@perro.Nombre</a>
+                        </li>
                     }
                 </ul>
-            </div>
+            </div><br />
+            <a asp-controller="Users" asp-action="InsertarPerro" asp-route-idusu="@Context.User.FindFirst(ClaimTypes.Sid)" class="btn btn-primary">Nuevo</a>
         </div>
     </div>
     <div class="card col-3 mx-auto">

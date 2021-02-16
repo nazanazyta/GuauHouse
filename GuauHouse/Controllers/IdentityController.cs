@@ -40,6 +40,7 @@ namespace GuauHouse.Controllers
                 lista.Add(new Claim(ClaimTypes.NameIdentifier, username));
                 lista.Add(new Claim(ClaimTypes.Name, user.Nombre));
                 lista.Add(new Claim(ClaimTypes.Role, user.Rol.ToString()));
+                lista.Add(new Claim(ClaimTypes.Sid, user.IdUsuario.ToString()));
                 //lista.Add(new Claim(ClaimTypes.Email, user.Email));
                 ClaimsIdentity identity =
                     new ClaimsIdentity
@@ -55,7 +56,7 @@ namespace GuauHouse.Controllers
                     , new AuthenticationProperties
                     {
                         IsPersistent = true,
-                        ExpiresUtc = DateTime.Now.AddSeconds(15)
+                        ExpiresUtc = DateTime.Now.AddSeconds(30)
                     });
                 if (principal.IsInRole("1"))
                 {

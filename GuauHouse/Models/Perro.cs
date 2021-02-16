@@ -19,6 +19,8 @@ namespace GuauHouse.Models
         public String Nombre { get; set; }
         [Column("ESTATURA")]
         public String Estatura { get; set; }
+        [Column("FOTO")]
+        public String Foto { get; set; }
         [Column("FECHA_ALTA")]
         [Timestamp]
         public DateTime FechaAlta { get; set; }
