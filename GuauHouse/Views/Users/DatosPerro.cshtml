@@ -1,5 +1,7 @@
 ﻿@model Perro
-
+<h1 style="color: cornflowerblue">Editar datos de @Model.Nombre</h1>
+<a asp-controller="Users" asp-action="ListaPerros" class="btn btn-info">Volver a lista de perros</a>
+<a asp-controller="Users" asp-action="Perfil" class="btn btn-secondary">Volver al perfil</a>
 <div class="container-fluid w-50 mt-5">
     <form method="post" style="text-align: left" enctype="multipart/form-data">
         <input type="hidden" name="idperro" value="@Model.IdPerro" />
@@ -42,11 +44,11 @@
                     <label style="font-weight: bold">Foto</label><br />
                     @if (Model.Foto != null)
                     {
-                    <img src="~/images/@Model.Foto" style="width: 120px; height: 120px" />
+                        <img src="~/images/@Model.Foto" style="width: 120px; height: 120px" />
                     }
                     else
                     {
-                    <label>No hay foto</label>
+                        <label>No hay foto</label>
                     }
                 </td>
                 <td class="col-5">
@@ -55,5 +57,15 @@
             </tr>
         </table>
         <button type="submit" class="btn btn-success">Editar datos</button>
+        <a asp-controller="Users" asp-action="EliminarPerro" class="btn btn-danger">Eliminar perro</a>
     </form>
 </div>
+
+@section styles
+{
+    <style>
+        body {
+            background-size: cover !important;
+        }
+    </style>
+}

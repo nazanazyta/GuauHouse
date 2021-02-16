@@ -63,7 +63,7 @@ namespace GuauHouse.Controllers
                 await this.upload.UploadFileAsync(fichero, Folders.Images);
                 perro.Foto = fichero.FileName;
             }
-            var userId = User.FindFirst(ClaimTypes.Sid).Value;
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             perro.IdUsu = int.Parse(userId);
             Perro p = this.repo.InsertarPerro(perro);
             return RedirectToAction("Perfil", "Users");
@@ -86,22 +86,15 @@ namespace GuauHouse.Controllers
             return View(p);
         }
 
-        //[AuthorizeUser]
-        //[HttpPost]
-        //public async Task<IActionResult> DatosUser(IFormFile fichero, User user)
-        //{
-        //    if (fichero != null)
-        //    {
-        //        await this.upload.UploadFileAsync(fichero, Folders.Images);
-        //        user.Imagen = fichero.FileName;
-        //    }
-        //    User usuario = this.repo.EditUser(user.IdUsuario, user.Nombre);
-        //    ViewData["mensaje"] = "Cambios guardados";
-        //    String nombre = usuario.Nombre;
-        //    //return RedirectToAction("Details", this.repo.GetPeliculaId(pelicula.IdPelicula));
-        //    return View(this.repo.GetUserByUserName(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
-        //}
+        public IActionResult ListaReservas()
+        {
+            return View();
+        }
 
+        public IActionResult NuevaReserva()
+        {
+            return View();
+        }
 
         [AuthorizeAdmin]
         public IActionResult IndexAdmin()

@@ -1,14 +1,14 @@
-﻿@model User 
+﻿@model User
 <h1 style="color: cornflowerblue">Editar datos de @Context.User.Identity.Name</h1>
 <a asp-controller="Users" asp-action="Perfil" class="btn btn-info">Volver a perfil</a>
 <div class="container-fluid w-50 mt-5">
     <form method="post" style="text-align: left">
         <input type="hidden" name="idusuario" value="@Model.IdUsuario" />
         @*<input type="hidden" name="rol" value="@Model.Rol" />
-        <input type="hidden" name="username" value="@Model.UserName" />
-        <input type="hidden" name="password" value="@Model.Password" />
-        <input type="hidden" name="fechaalta" value="@Model.FechaAlta" />
-        <input type="hidden" name="imagen" value="@Model.Imagen" />*@
+            <input type="hidden" name="username" value="@Model.UserName" />
+            <input type="hidden" name="password" value="@Model.Password" />
+            <input type="hidden" name="fechaalta" value="@Model.FechaAlta" />
+            <input type="hidden" name="imagen" value="@Model.Imagen" />*@
         <table class="table">
             <tr class="row">
                 <td class="col-5">
@@ -57,40 +57,49 @@
                 </td>
             </tr>
             @*<tr class="row">
-                <td class="col-5">
-                    <label style="font-weight: bold">Imagen</label><br />
-                    <img src="~/images/@Model.Imagen" style="width: 12rem; height: 12rem" />
-                </td>
-                <td class="col-5">
-                    <input type="file" name="fichero" class="form-control-file" /><br />
-                </td>
-            </tr>*@
+                    <td class="col-5">
+                        <label style="font-weight: bold">Imagen</label><br />
+                        <img src="~/images/@Model.Imagen" style="width: 12rem; height: 12rem" />
+                    </td>
+                    <td class="col-5">
+                        <input type="file" name="fichero" class="form-control-file" /><br />
+                    </td>
+                </tr>*@
         </table>
         <br /><br />
         @*<table class="table">
-            <tr class="row">
-                <td class="col-5">
-                    <label style="font-weight: bold">Usuario</label><br />
-                    <label>@Model.UserName</label>
-                </td>
-                <td class="col-5">
-                    <input type="text" name="username" class="form-control-sm" /><br />
-                </td>
-            </tr>
-            <tr class="row">
-                <td class="col-5">
-                    <label style="font-weight: bold">Contraseña</label><br />
-                </td>
-                <td class="col-5">
-                    <label style="font-weight: bold">Contraseña antigua</label><br />
-                    <input type="text" name="passwordantigua" class="form-control-sm" /><br />
-                    <label style="font-weight: bold">Contraseña nueva</label><br />
-                    <input type="text" name="passwordnueva1" class="form-control-sm" /><br />
-                    <label style="font-weight: bold">Confirmar contraseña</label><br />
-                    <input type="text" name="passwordnueva2" class="form-control-sm" /><br />
-                </td>
-            </tr>
-        </table>*@
+                <tr class="row">
+                    <td class="col-5">
+                        <label style="font-weight: bold">Usuario</label><br />
+                        <label>@Model.UserName</label>
+                    </td>
+                    <td class="col-5">
+                        <input type="text" name="username" class="form-control-sm" /><br />
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td class="col-5">
+                        <label style="font-weight: bold">Contraseña</label><br />
+                    </td>
+                    <td class="col-5">
+                        <label style="font-weight: bold">Contraseña antigua</label><br />
+                        <input type="text" name="passwordantigua" class="form-control-sm" /><br />
+                        <label style="font-weight: bold">Contraseña nueva</label><br />
+                        <input type="text" name="passwordnueva1" class="form-control-sm" /><br />
+                        <label style="font-weight: bold">Confirmar contraseña</label><br />
+                        <input type="text" name="passwordnueva2" class="form-control-sm" /><br />
+                    </td>
+                </tr>
+            </table>*@
         <button type="submit" class="btn btn-success">Editar datos</button>
     </form>
 </div>
+
+@section styles
+{
+    <style>
+        body {
+            background-size: cover !important;
+        }
+    </style>
+}

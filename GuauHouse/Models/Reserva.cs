@@ -22,7 +22,6 @@ namespace GuauHouse.Models
         [Column("TURNO")]
         public String Turno { get; set; }
         [Column("FECHA_ALTA")]
-        [Timestamp]
         public DateTime FechaAlta { get; set; }
     }
 }

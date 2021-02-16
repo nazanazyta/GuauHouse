@@ -31,14 +31,39 @@
                     }
                 </ul>
             </div><br /><br />
-            <a asp-controller="Users" asp-action="InsertarPerro" asp-route-idusu="@Context.User.FindFirst(ClaimTypes.Sid)" class="btn btn-primary">Nuevo</a>
+            <a asp-controller="Users" asp-action="InsertarPerro" asp-route-idusu="@Context.User.FindFirst(ClaimTypes.NameIdentifier)" class="btn btn-primary">Nuevo</a>
         </div>
     </div>
     <div class="card col-3 mx-auto">
         <img class="card-img-top" src="~/images/reservas2.jpg">
         <div class="card-body">
             <h5 class="card-title">Reservas</h5>
-            <p class="card-text">Revisa o edita tus reservas</p>
+            <p class="card-text">Revisa y edita tus reservas. ¡O haz una nueva aquí!</p>
+            <div class="btn-group dropup">
+                <a asp-controller="Users" asp-action="ListaReservas" class="btn btn-primary">Mis reservas</a>
+                @*<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    @foreach (Perro perro in Model)
+                    {
+                        <li>
+                            <a asp-controller="Users" asp-action="DatosPerro"
+                               asp-route-idperro="@perro.IdPerro"
+                               class="dropdown-item">@perro.Nombre</a>
+                        </li>
+                    }
+                </ul>*@
+            </div><br /><br />
+            <a asp-controller="Users" asp-action="NuevaReserva" asp-route-idusu="@Context.User.FindFirst(ClaimTypes.NameIdentifier)" class="btn btn-primary">Nueva</a>
         </div>
     </div>
 </div>
+
+@section styles
+{
+    <style>
+        body {
+            background-size: cover !important;
+        }
+    </style>
+}

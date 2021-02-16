@@ -8,8 +8,17 @@
     <title>Guau House</title>
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/navbar.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(../images/fondohuellas3.jpg) !important;
+            /*background-repeat: no-repeat;*/
+            /*background-color: rgba(240, 248, 255, 0.55) !important;*/
+            background-size: contain;
+        }
+    </style>
+    @RenderSection("styles", false)
 </head>
-<body style="background-color: rgba(240, 248, 255, 0.55)">
+<body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <partial name="_PartialViewLogoLayout" />

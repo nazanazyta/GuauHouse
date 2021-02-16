@@ -54,7 +54,7 @@ namespace GuauHouse.Controllers
                     , new AuthenticationProperties
                     {
                         IsPersistent = true,
-                        ExpiresUtc = DateTime.Now.AddSeconds(30)
+                        ExpiresUtc = DateTime.Now.AddMinutes(2)
                     });
                 if (principal.IsInRole("1"))
                 {
@@ -62,7 +62,7 @@ namespace GuauHouse.Controllers
                 }
                 else if (principal.IsInRole("2"))
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Perfil", "Users");
                 }
                 else
                 {
