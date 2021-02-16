@@ -1,14 +1,17 @@
 ﻿@model User
-<h1 style="color: cornflowerblue">Editar datos de @Context.User.Identity.Name</h1>
-<a asp-controller="Users" asp-action="Perfil" class="btn btn-info">Volver a perfil</a>
+<h1 style="color: cornflowerblue">Editar datos de @Model.UserName</h1>
+<a asp-controller="Users" asp-action="Perfil" class="btn btn-info">Volver a perfil</a><br />
+@*<h3 style="background-color: lightsalmon">@ViewData["error1"]</h3>
+<h3 style="background-color: lightsalmon">@ViewData["error2"]</h3>*@
 <div class="container-fluid w-50 mt-5">
-    <form method="post" style="text-align: left">
+    <form method="post" style="text-align: left" enctype="multipart/form-data">
         <input type="hidden" name="idusuario" value="@Model.IdUsuario" />
+        <input type="hidden" name="imagen" value="@Model.Imagen" />
         @*<input type="hidden" name="rol" value="@Model.Rol" />
-            <input type="hidden" name="username" value="@Model.UserName" />
-            <input type="hidden" name="password" value="@Model.Password" />
-            <input type="hidden" name="fechaalta" value="@Model.FechaAlta" />
-            <input type="hidden" name="imagen" value="@Model.Imagen" />*@
+        <input type="hidden" name="username" value="@Model.UserName" />
+        <input type="hidden" name="password" value="@Model.Password" />
+        <input type="hidden" name="fechaalta" value="@Model.FechaAlta" />
+        *@
         <table class="table">
             <tr class="row">
                 <td class="col-5">
@@ -56,41 +59,49 @@
                     <input type="text" name="telefono" value="@Model.Telefono" class="form-control-sm" /><br />
                 </td>
             </tr>
-            @*<tr class="row">
-                    <td class="col-5">
-                        <label style="font-weight: bold">Imagen</label><br />
+            <tr class="row">
+                <td class="col-5">
+                    <label style="font-weight: bold">Imagen</label><br />
+                    @if (Model.Imagen != null)
+                    {
                         <img src="~/images/@Model.Imagen" style="width: 12rem; height: 12rem" />
-                    </td>
-                    <td class="col-5">
-                        <input type="file" name="fichero" class="form-control-file" /><br />
-                    </td>
-                </tr>*@
+                    }
+                    else
+                    {
+                        <label>No hay foto</label>
+                    }
+                </td>
+                <td class="col-5">
+                    <input type="file" name="fichero" />
+                </td>
+            </tr>
         </table>
+        @*ARREGLO!:
         <br /><br />
-        @*<table class="table">
-                <tr class="row">
-                    <td class="col-5">
-                        <label style="font-weight: bold">Usuario</label><br />
-                        <label>@Model.UserName</label>
-                    </td>
-                    <td class="col-5">
-                        <input type="text" name="username" class="form-control-sm" /><br />
-                    </td>
-                </tr>
-                <tr class="row">
-                    <td class="col-5">
-                        <label style="font-weight: bold">Contraseña</label><br />
-                    </td>
-                    <td class="col-5">
-                        <label style="font-weight: bold">Contraseña antigua</label><br />
-                        <input type="text" name="passwordantigua" class="form-control-sm" /><br />
-                        <label style="font-weight: bold">Contraseña nueva</label><br />
-                        <input type="text" name="passwordnueva1" class="form-control-sm" /><br />
-                        <label style="font-weight: bold">Confirmar contraseña</label><br />
-                        <input type="text" name="passwordnueva2" class="form-control-sm" /><br />
-                    </td>
-                </tr>
-            </table>*@
+        <table class="table">
+            <tr class="row">
+                <td class="col-5">
+                    <label style="font-weight: bold">Usuario</label><br />
+                    <label>@Model.UserName</label>
+                </td>
+                <td class="col-5">
+                    <input type="text" name="username" value="@Model.UserName" class="form-control-sm" /><br />
+                </td>
+            </tr>
+            <tr class="row">
+                <td class="col-5">
+                    <label style="font-weight: bold">Contraseña</label><br />
+                </td>
+                <td class="col-5">
+                    <label style="font-weight: bold">Contraseña antigua</label><br />
+                    <input type="text" name="passwordantigua" class="form-control-sm" /><br />
+                    <label style="font-weight: bold">Contraseña nueva</label><br />
+                    <input type="text" name="passwordnueva1" value="nueva" class="form-control-sm" /><br />
+                    <label style="font-weight: bold">Confirmar contraseña</label><br />
+                    <input type="text" name="passwordnueva2" value="confirmacion" class="form-control-sm" /><br />
+                </td>
+            </tr>
+        </table>*@
         <button type="submit" class="btn btn-success">Editar datos</button>
     </form>
 </div>

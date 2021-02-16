@@ -57,7 +57,32 @@
             </tr>
         </table>
         <button type="submit" class="btn btn-success">Editar datos</button>
-        <a asp-controller="Users" asp-action="EliminarPerro" class="btn btn-danger">Eliminar perro</a>
+        @* MODAL DE CONFIRMACIÓN*@ 
+        <button class="btn btn-danger"
+                data-bs-toggle="modal" type="button"
+                data-bs-target="#confirmation">
+            Eliminar perro
+        </button>
+
+        <div class="modal fade" id="confirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Estás seguro/a de que quieres eliminarlo??
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                        <a asp-controller="Users" asp-action="EliminarPerro"
+                           asp-route-idperro="@Model.IdPerro" class="btn btn-success">Sí</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<a asp-controller="Users" asp-action="EliminarPerro" class="btn btn-danger">Eliminar perro</a>*@
     </form>
 </div>
 

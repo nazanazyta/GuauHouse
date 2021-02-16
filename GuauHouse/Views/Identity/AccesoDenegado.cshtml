@@ -1,2 +1,29 @@
-﻿<h1 style="color: red">No tiene permisos para acceder a esta zona</h1>
-<a asp-action="Index" asp-controller="Home">Volver</a>
+﻿@if (Context.User.IsInRole("1"))
+{
+    <h1 style="color: red">No tiene permisos para acceder a esta zona</h1>
+    <a asp-action="IndexAdmin" asp-controller="Users">Home</a>
+}
+else if (Context.User.IsInRole("2"))
+{
+    <h1 style="color: red">No tiene permisos para acceder a esta zona</h1>
+    <a asp-action="Index" asp-controller="Home">Home</a>
+}
+else if (Context.User.IsInRole("3"))
+{
+    <h1 style="color: red">No tiene permisos para acceder a esta zona</h1>
+    <a asp-action="IndexEmpleado" asp-controller="Users">Home</a>
+}
+else
+{
+    <h1 style="color: red">No tiene permisos para acceder a esta zona</h1>
+    <a asp-action="Index" asp-controller="Home">Home</a>
+}
+
+@section styles
+{
+    <style>
+        body {
+            background-size: cover !important;
+        }
+    </style>
+}

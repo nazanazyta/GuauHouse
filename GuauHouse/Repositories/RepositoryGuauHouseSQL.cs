@@ -81,9 +81,39 @@ namespace GuauHouse.Repositories
             usuario.Dni = user.Dni;
             usuario.Email = user.Email;
             usuario.Telefono = user.Telefono;
+            usuario.Imagen = user.Imagen;
             this.context.SaveChanges();
             return usuario;
         }
+
+        //public User EditUser(User user, String passant, String passnue1)
+        //{
+        //    User usuario = this.GetUserById(user.IdUsuario);
+        //    if (usuario.Password != passant)
+        //    {
+        //        usuario.Nombre = user.Nombre;
+        //        usuario.Apellidos = user.Apellidos;
+        //        usuario.Dni = user.Dni;
+        //        usuario.Email = user.Email;
+        //        usuario.Telefono = user.Telefono;
+        //        usuario.Imagen = user.Imagen;
+        //        usuario.UserName = user.UserName;
+        //        this.context.SaveChanges();
+        //        return null;
+        //    }
+        //    else
+        //    {
+        //        usuario.Nombre = user.Nombre;
+        //        usuario.Apellidos = user.Apellidos;
+        //        usuario.Dni = user.Dni;
+        //        usuario.Email = user.Email;
+        //        usuario.Telefono = user.Telefono;
+        //        usuario.Imagen = user.Imagen;
+        //        usuario.UserName = user.UserName;
+        //        this.context.SaveChanges();
+        //        return usuario;
+        //    }
+        //}
         #endregion
 
         #region PERROS
@@ -117,29 +147,7 @@ namespace GuauHouse.Repositories
             Perro p = this.context.Perros.Add(perro).Entity;
             this.context.SaveChanges();
             return p;
-            //user.IdUsuario = this.GetMaxId("Usuarios");
-            //user.Rol = 2;
-            //this.context.Usuarios.Add(user);
-            //this.context.SaveChanges();
-            //return user;
         }
-
-        //public Perro InsertarPerro(int idusu, String nombre, String estatura)
-        //{
-        //    Perro perro = new Perro();
-        //    perro.IdPerro = this.GetMaxId("Perros");
-        //    perro.IdUsu = idusu;
-        //    perro.Nombre = nombre;
-        //    perro.Estatura = estatura;
-        //    Perro p = this.context.Perros.Add(perro).Entity;
-        //    this.context.SaveChanges();
-        //    return p;
-        //    //user.IdUsuario = this.GetMaxId("Usuarios");
-        //    //user.Rol = 2;
-        //    //this.context.Usuarios.Add(user);
-        //    //this.context.SaveChanges();
-        //    //return user;
-        //}
 
         public Perro EditarPerro(Perro perro)
         {
@@ -149,6 +157,23 @@ namespace GuauHouse.Repositories
             p.Foto = perro.Foto;
             this.context.SaveChanges();
             return p;
+        }
+
+        public void BorrarPerro(int idperro)
+        {
+            Perro perro = this.context.Perros.SingleOrDefault(x => x.IdPerro == idperro);
+            this.context.Remove(perro);
+            this.context.SaveChanges();
+        }
+        #endregion
+
+        #region RESERVAS
+        public void InsertarReserva(Reserva reserva)
+        {
+            reserva.IdReserva = this.GetMaxId("Reservas");
+            reserva.FechaAlta = DateTime.Now;
+            this.context.Reservas.Add(reserva);
+            this.context.SaveChanges();
         }
         #endregion
     }

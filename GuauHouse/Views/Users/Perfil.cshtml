@@ -2,6 +2,7 @@
 <h1 style="color: blueviolet" class="mb-5">Zona personal de @Context.User.Identity.Name</h1>
 
 <div class="card-deck" style="display: flex">
+@*<div class="card-deck w-75 mx-auto" style="display: flex">*@
     <div class="card col-3 mx-auto">
         <img class="card-img-top" src="~/images/datos.jpg">
         <div class="card-body">
@@ -42,19 +43,19 @@
             <div class="btn-group dropup">
                 <a asp-controller="Users" asp-action="ListaReservas" class="btn btn-primary">Mis reservas</a>
                 @*<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    @foreach (Perro perro in Model)
-                    {
-                        <li>
-                            <a asp-controller="Users" asp-action="DatosPerro"
-                               asp-route-idperro="@perro.IdPerro"
-                               class="dropdown-item">@perro.Nombre</a>
-                        </li>
-                    }
-                </ul>*@
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                @foreach (Perro perro in Model)
+                {
+                    <li>
+                        <a asp-controller="Users" asp-action="DatosPerro"
+                           asp-route-idperro="@perro.IdPerro"
+                           class="dropdown-item">@perro.Nombre</a>
+                    </li>
+                }
+            </ul>*@
             </div><br /><br />
-            <a asp-controller="Users" asp-action="NuevaReserva" asp-route-idusu="@Context.User.FindFirst(ClaimTypes.NameIdentifier)" class="btn btn-primary">Nueva</a>
+            <a asp-controller="Users" asp-action="NuevaReserva" class="btn btn-primary">Nueva</a><!--asp-route-idusu="@Context.User.FindFirst(ClaimTypes.NameIdentifier)"-->
         </div>
     </div>
 </div>

@@ -1,5 +1,36 @@
-﻿<h1 style="color: cornflowerblue">Nueva reservas para @Context.User.Identity.Name</h1>
+﻿@model List<Perro>
+@{ 
+    DateTime hoy = new DateTime();
+    DateTime manana = hoy.AddDays(1);
+    DateTime mes = hoy.AddDays(30);
+}
+
+<h1 style="color: cornflowerblue">Nueva reservas para @Context.User.Identity.Name</h1>
 <a asp-controller="Users" asp-action="Perfil" class="btn btn-info">Volver al perfil</a>
+
+<div class="container-fluid w-25 mt-4">
+    <form method="post" style="text-align: left">
+        <input type="hidden" name="idusu" value="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value" />
+        <label>Elige el perro</label><br />
+        <select name="idper" class="form-control">
+            @foreach (Perro p in Model)
+            {
+                <option value="@p.IdPerro">@p.Nombre</option>
+            }
+        </select><br />
+        <label>Elige el turno</label><br />
+        <select name="turno" class="form-control">
+            @foreach (String t in Enum.GetNames(typeof(Enumerations.Turnos)))
+            {
+                <option value="@t">@t</option>
+            }
+        </select><br />
+        <label>Elige el día</label><br />
+        <input type="date" name="fecha" value="@hoy"
+               min="@manana" max="@mes">
+        <button type="submit" class="btn btn-success">Nuevo</button>
+    </form>
+</div>
 
 @section styles
 {

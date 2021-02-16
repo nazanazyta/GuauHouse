@@ -38,11 +38,46 @@ namespace GuauHouse.Controllers
 
         [AuthorizeUser]
         [HttpPost]
-        public IActionResult DatosUser(User user)
+        public async Task<IActionResult> DatosUser(User user, IFormFile fichero)
+            //String passwordantigua, String passwordnueva1, String passwordnueva2, 
         {
+            if (fichero != null)
+            {
+                await this.upload.UploadFileAsync(fichero, Folders.Images);
+                user.Imagen = fichero.FileName;
+            }
             User usuario = this.repo.EditUser(user);
-            //signout??
             return View(usuario);
+            //signout??
+            //if (passwordnueva1 != passwordnueva2)
+            //{
+            //    ViewData["error1"] = "Las contraseñas no coindiden";
+            //    if (fichero != null)
+            //    {
+            //        await this.upload.UploadFileAsync(fichero, Folders.Images);
+            //        user.Imagen = fichero.FileName;
+            //    }
+            //    User usuario = this.repo.EditUser(user);
+            //    return View(usuario);
+            //}
+            //else
+            //{
+            //    if (fichero != null)
+            //    {
+            //        await this.upload.UploadFileAsync(fichero, Folders.Images);
+            //        user.Imagen = fichero.FileName;
+            //    }
+            //    User usuario = this.repo.EditUser(user, passwordantigua, passwordnueva1);
+            //    if (usuario == null)
+            //    {
+            //        ViewData["error2"] = "Contraseña incorrecta";
+            //        return View(this.repo.GetUserById(user.IdUsuario));
+            //    }
+            //    else
+            //    {
+            //        return View(usuario);
+            //    }
+            //}
         }
 
         public IActionResult ListaPerros()
@@ -86,6 +121,12 @@ namespace GuauHouse.Controllers
             return View(p);
         }
 
+        public IActionResult EliminarPerro(int idperro)
+        {
+            this.repo.BorrarPerro(idperro);
+            return RedirectToAction("ListaPerros", "Users");
+        }
+
         public IActionResult ListaReservas()
         {
             return View();
@@ -93,7 +134,14 @@ namespace GuauHouse.Controllers
 
         public IActionResult NuevaReserva()
         {
-            return View();
+            return View(this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
+        }
+
+        [HttpPost]
+        public IActionResult NuevaReserva(Reserva reserva)
+        {
+            this.repo.InsertarReserva(reserva);
+            return RedirectToAction("ListaReservas", "Users");
         }
 
         [AuthorizeAdmin]

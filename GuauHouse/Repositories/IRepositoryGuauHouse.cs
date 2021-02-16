@@ -17,6 +17,7 @@ namespace GuauHouse.Repositories
         User GetUserByUserName(String username);
         User GetUserById(int idusuario);
         User EditUser(User user);
+        //User EditUser(User user, String passant, String passnue1);
 
         #endregion
 
@@ -26,7 +27,13 @@ namespace GuauHouse.Repositories
         Perro GetPerroId(int idperro);
         Perro InsertarPerro(Perro perro);
         Perro EditarPerro(Perro perro);
+        void BorrarPerro(int idperro);
 
+        #endregion
+
+        #region RESERVAS
+
+        void InsertarReserva(Reserva reserva);
         #endregion
     }
 }
