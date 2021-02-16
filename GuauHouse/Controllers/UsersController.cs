@@ -27,13 +27,13 @@ namespace GuauHouse.Controllers
         [AuthorizeUser]
         public IActionResult Perfil()
         {
-            return View(this.repo.GetPerrosUserName(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
+            return View(this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
         }
 
         [AuthorizeUser]
         public IActionResult DatosUser()
         {
-            return View(this.repo.GetUserByUserName(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
+            return View(this.repo.GetUserById(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
         }
 
         [AuthorizeUser]
@@ -41,7 +41,13 @@ namespace GuauHouse.Controllers
         public IActionResult DatosUser(User user)
         {
             User usuario = this.repo.EditUser(user);
+            //signout??
             return View(usuario);
+        }
+
+        public IActionResult ListaPerros()
+        {
+            return View(this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
         }
 
         public IActionResult InsertarPerro()
@@ -69,8 +75,13 @@ namespace GuauHouse.Controllers
         }
 
         [HttpPost]
-        public IActionResult DatosPerro(Perro perro)
+        public async Task<IActionResult> DatosPerro(Perro perro, IFormFile fichero)
         {
+            if (fichero != null)
+            {
+                await this.upload.UploadFileAsync(fichero, Folders.Images);
+                perro.Foto = fichero.FileName;
+            }
             Perro p = this.repo.EditarPerro(perro);
             return View(p);
         }

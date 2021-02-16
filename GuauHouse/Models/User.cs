@@ -35,7 +35,6 @@ namespace GuauHouse.Models
         public String Imagen { get; set; }
         [Column("ROL")]
         public int Rol { get; set; }
-        [Timestamp]
         [Column("FECHA_ALTA")]
         public DateTime FechaAlta { get; set; }
     }

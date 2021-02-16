@@ -1,0 +1,20 @@
+﻿@model List<Perro>
+
+<div class="container-fluid w-75 mt-5">
+    <table class="table table-sm table-danger align-baseline">
+        @foreach (Perro p in Model)
+        {
+            <tr>
+                <td>@p.IdPerro</td>
+                <td>@p.Nombre</td>
+                <td>@p.Estatura</td>
+                <td>
+                    <img src="~/images/@p.Foto" style="width: 120px; height: 120px" />
+                </td>
+                <td>
+                    <a asp-controller="Users" asp-action="DatosPerro" asp-route-idperro="@p.IdPerro">Editar</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

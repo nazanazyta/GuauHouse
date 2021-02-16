@@ -22,7 +22,6 @@ namespace GuauHouse.Models
         [Column("FOTO")]
         public String Foto { get; set; }
         [Column("FECHA_ALTA")]
-        [Timestamp]
         public DateTime FechaAlta { get; set; }
     }
 }

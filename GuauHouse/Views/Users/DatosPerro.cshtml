@@ -1,14 +1,10 @@
 ﻿@model Perro
 
 <div class="container-fluid w-50 mt-5">
-    <form method="post" style="text-align: left">
+    <form method="post" style="text-align: left" enctype="multipart/form-data">
         <input type="hidden" name="idperro" value="@Model.IdPerro" />
         <input type="hidden" name="idusu" value="@Model.IdUsu" />
         <input type="hidden" name="foto" value="@Model.Foto" />
-        @*<input type="hidden" name="username" value="@Model.UserName" />
-        <input type="hidden" name="password" value="@Model.Password" />
-        <input type="hidden" name="fechaalta" value="@Model.FechaAlta" />
-        *@
         <table class="table">
             <tr class="row">
                 <td class="col-5">
@@ -39,20 +35,25 @@
                             }
                         }
                     </select><br />
-                    @*<input type="text" name="apellidos" value="@Model.Estatura" class="form-control-sm" />*@<br />
+                </td>
+            </tr>
+            <tr class="row">
+                <td class="col-5">
+                    <label style="font-weight: bold">Foto</label><br />
+                    @if (Model.Foto != null)
+                    {
+                    <img src="~/images/@Model.Foto" style="width: 120px; height: 120px" />
+                    }
+                    else
+                    {
+                    <label>No hay foto</label>
+                    }
+                </td>
+                <td class="col-5">
+                    <input type="file" name="fichero" />
                 </td>
             </tr>
         </table>
         <button type="submit" class="btn btn-success">Editar datos</button>
     </form>
 </div>
-
-@*<form method="post">
-    <input type="hidden" name="idusu" value="@Model.IdUsu" />
-    <input type="hidden" name="idperro" value="@Model.IdPerro" />
-    <label>Nombre</label>
-    <input type="text" name="nombre" class="form-control" value="@Model.Nombre" /><br />
-    <label>Estatura</label>
-    <input type="text" name="estatura" class="form-control" value="@Model.Estatura" /><br />
-    <button type="submit" class="btn btn-success">Editar</button>
-</form>*@

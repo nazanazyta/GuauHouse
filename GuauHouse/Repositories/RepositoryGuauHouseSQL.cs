@@ -57,6 +57,7 @@ namespace GuauHouse.Repositories
         {
             user.IdUsuario = this.GetMaxId("Usuarios");
             user.Rol = 2;
+            user.FechaAlta = DateTime.Now;
             this.context.Usuarios.Add(user);
             this.context.SaveChanges();
             return user;
@@ -86,12 +87,12 @@ namespace GuauHouse.Repositories
         #endregion
 
         #region PERROS
-        public List<Perro> GetPerrosUserName(String username)
+        public List<Perro> GetPerrosIdUser(int idusu)
         {
             //this.context.Usuarios.Where(x => x.UserName == username).Select(z => z.IdUsuario);
             //return this.context.Perros.Where(x => x.IdUsu == iduser).Select(z => z.Nombre).ToList();
-            int id = this.context.Usuarios.SingleOrDefault(x => x.UserName == username).IdUsuario;
-            return this.context.Perros.Where(z => z.IdUsu == id).ToList();
+            //int id = this.context.Usuarios.SingleOrDefault(x => x.UserName == username).IdUsuario;
+            return this.context.Perros.Where(z => z.IdUsu == idusu).ToList();
             //return this.context.Perros.Where(x => x.IdUsu == 
             //    (this.context.Usuarios.Where(z => z.UserName == username).Select(y => y.IdUsuario)));
             //return (from datos in this.context.Perros
@@ -112,6 +113,7 @@ namespace GuauHouse.Repositories
         public Perro InsertarPerro(Perro perro)
         {
             perro.IdPerro = this.GetMaxId("Perros");
+            perro.FechaAlta = DateTime.Now;
             Perro p = this.context.Perros.Add(perro).Entity;
             this.context.SaveChanges();
             return p;
@@ -144,6 +146,7 @@ namespace GuauHouse.Repositories
             Perro p = this.GetPerroId(perro.IdPerro);
             p.Nombre = perro.Nombre;
             p.Estatura = perro.Estatura;
+            p.Foto = perro.Foto;
             this.context.SaveChanges();
             return p;
         }

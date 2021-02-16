@@ -1,5 +1,6 @@
 ﻿@model User 
 <h1 style="color: cornflowerblue">Editar datos de @Context.User.Identity.Name</h1>
+<a asp-controller="Users" asp-action="Perfil" class="btn btn-info">Volver a perfil</a>
 <div class="container-fluid w-50 mt-5">
     <form method="post" style="text-align: left">
         <input type="hidden" name="idusuario" value="@Model.IdUsuario" />

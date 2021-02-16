@@ -91,3 +91,4 @@ G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Partial
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\DatosPerro.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\InsertarPerro.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\GuauHouse.csprojAssemblyReference.cache
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\ListaPerros.cshtml.g.cs

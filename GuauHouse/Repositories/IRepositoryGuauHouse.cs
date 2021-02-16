@@ -22,7 +22,7 @@ namespace GuauHouse.Repositories
 
         #region PERROS
 
-        List<Perro> GetPerrosUserName(String username);
+        List<Perro> GetPerrosIdUser(int idusu);
         Perro GetPerroId(int idperro);
         Perro InsertarPerro(Perro perro);
         Perro EditarPerro(Perro perro);

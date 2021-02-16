@@ -31,25 +31,23 @@ namespace GuauHouse.Controllers
             User user = this.repo.ValidateUser(username, password);
             if (user == null)
             {
+                //ARREGLO!: Mandar a otra vista
                 ViewData["mensaje"] = "Usuario/Password incorrectos";
                 return View();
             }
             else
             {
                 List<Claim> lista = new List<Claim>();
-                lista.Add(new Claim(ClaimTypes.NameIdentifier, username));
-                lista.Add(new Claim(ClaimTypes.Name, user.Nombre));
+                lista.Add(new Claim(ClaimTypes.NameIdentifier, user.IdUsuario.ToString()));
+                lista.Add(new Claim(ClaimTypes.Name, username));
                 lista.Add(new Claim(ClaimTypes.Role, user.Rol.ToString()));
-                lista.Add(new Claim(ClaimTypes.Sid, user.IdUsuario.ToString()));
-                //lista.Add(new Claim(ClaimTypes.Email, user.Email));
                 ClaimsIdentity identity =
                     new ClaimsIdentity
                     (lista, CookieAuthenticationDefaults.AuthenticationScheme
                     , ClaimTypes.Name, ClaimTypes.Role);
-                //identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, username));
-                //identity.AddClaim(new Claim(ClaimTypes.Name, user.Nombre));
+                //identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.IdUsuario.ToString()));
+                //identity.AddClaim(new Claim(ClaimTypes.Name, username));
                 //identity.AddClaim(new Claim(ClaimTypes.Role, user.Rol.ToString()));
-                //identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme
                     , principal
