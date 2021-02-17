@@ -83,7 +83,6 @@ G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identi
 G:\Repos\GuauHouse\GuauHouse\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialViewMenu.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\Perfil.cshtml.g.cs
-G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\Reserva.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\DatosUser.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\IndexAdmin.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\IndexEmpleado.cshtml.g.cs
@@ -93,8 +92,12 @@ G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\InsertarP
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\GuauHouse.csprojAssemblyReference.cache
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\ListaPerros.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\ListaReservas.cshtml.g.cs
-G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\NuevaReserva.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Home\Nosotros.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\DatosReserva.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Home\Tarifas.cshtml.g.cs
 G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contacto.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\DatosEmpleado.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\InsertarReserva.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Users\InsertarEmpleado.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Identity\ErrorLogin.cshtml.g.cs
+G:\Repos\GuauHouse\GuauHouse\obj\Debug\netcoreapp3.1\Razor\Views\Identity\ErrorRegistro.cshtml.g.cs

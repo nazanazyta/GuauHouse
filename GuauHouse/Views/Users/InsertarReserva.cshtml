@@ -1,6 +1,6 @@
 ﻿@model List<Perro>
 @{
-    DateTime hoy = new DateTime();
+    DateTime hoy = DateTime.Now;
     DateTime manana = hoy.AddDays(1);
     DateTime mes = hoy.AddDays(30);
 }
@@ -27,7 +27,7 @@
         </select><br />
         <label>Elige el día</label><br />
         <input type="date" name="fecha" value="@hoy"
-               min="@manana" max="@mes">
+               min="@manana" max="@mes" required>
         <button type="submit" class="btn btn-success">Nuevo</button>
     </form>
 </div>

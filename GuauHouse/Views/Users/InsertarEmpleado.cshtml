@@ -1,0 +1,31 @@
+﻿<h1 style="color: cornflowerblue">Insertar nuevo empleado</h1>
+<a asp-controller="Users" asp-action="IndexAdmin" class="btn" style="background-color: mediumpurple">Volver a empleados</a>
+<div class="container-fluid w-25 mt-2">
+    <form method="post" enctype="multipart/form-data">
+        <label>Nombre</label><br />
+        <input type="text" name="nombre" class="form-control" required /><br />
+        <label>Apellidos</label><br />
+        <input type="text" name="apellidos" class="form-control" required /><br />
+        <label>Username</label><br />
+        <input type="text" name="username" class="form-control" required /><br />
+        <label>Password</label><br />
+        <input type="text" name="password" class="form-control" required /><br />
+        <label>Email</label><br />
+        <input type="email" name="email" class="form-control" required /><br />
+        <label>DNI</label><br />
+        <input type="text" name="dni" class="form-control" required /><br />
+        <label>Teléfono</label><br />
+        <input type="text" name="telefono" class="form-control" required /><br />
+        <input type="file" name="fichero" /><br /><br />
+        <button type="submit" class="btn btn-success">Nuevo</button>
+    </form>
+</div>
+
+@section styles
+{
+    <style>
+        body {
+            background-size: cover !important;
+        }
+    </style>
+}

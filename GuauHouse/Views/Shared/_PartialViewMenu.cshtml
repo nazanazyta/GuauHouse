@@ -10,24 +10,24 @@
         <a class="nav-link" asp-controller="Home" asp-action="Tarifas">Tarifas</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-controller="Home" asp-action="Index">Contacto</a>
+        <a class="nav-link" asp-controller="Home" asp-action="Contacto">Contacto</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-controller="Users" asp-action="Perfil">Perfil</a>
+        <a class="btn btn-warning rounded" asp-controller="Users" asp-action="Perfil">Perfil</a>
     </li>
 }
 @*else if (Context.User.IsInRole("1"))
-{
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="Users" asp-action="IndexAdmin">Admin</a>
-    </li>
-}
-else if (Context.User.IsInRole("3"))
-{
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="Users" asp-action="IndexEmpleado">Empleado</a>
-    </li>
-}*@
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Users" asp-action="IndexAdmin">Admin</a>
+        </li>
+    }
+    else if (Context.User.IsInRole("3"))
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Users" asp-action="IndexEmpleado">Empleado</a>
+        </li>
+    }*@
 else if (Context.User.Identity.IsAuthenticated == false)
 {
     <li class="nav-item active">
@@ -41,5 +41,8 @@ else if (Context.User.Identity.IsAuthenticated == false)
     </li>
     <li class="nav-item">
         <a class="nav-link" asp-controller="Home" asp-action="Contacto">Contacto</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-warning rounded" asp-controller="Users" asp-action="Perfil">¡¡Reserva ahora!!</a>
     </li>
 }

@@ -1,8 +1,8 @@
 ﻿@if (Context.User.Identity.IsAuthenticated == false)
 {
-    <a asp-action="Perfil" asp-controller="Users" class="btn btn-outline-success">Log In</a>
+    <a asp-action="Perfil" asp-controller="Users" class="btn btn-success rounded-pill">Log In</a>
 }
 else
 {
-    <a asp-action="Logout" asp-controller="Identity" class="btn btn-outline-danger">Log Out</a>
+    <a asp-action="Logout" asp-controller="Identity" class="btn btn-danger rounded-pill">Log Out</a>
 }

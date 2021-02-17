@@ -55,7 +55,14 @@
                 }
             </ul>*@
             </div><br /><br />
-            <a asp-controller="Users" asp-action="NuevaReserva" class="btn btn-primary">Nueva</a><!--asp-route-idusu="@Context.User.FindFirst(ClaimTypes.NameIdentifier)"-->
+            @if (Model.Count() == 0)
+            {
+                <button type="button" class="btn btn-primary" onclick="alert('Para hacer una reserva necesitas UN PERRO!')">Nueva</button>
+            }
+            else
+            {
+                <a asp-controller="Users" asp-action="InsertarReserva" class="btn btn-primary">Nueva</a>
+            }
         </div>
     </div>
 </div>

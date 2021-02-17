@@ -27,13 +27,16 @@ namespace GuauHouse.Repositories
         User GetUserByUserName(String username);
         User GetUserById(int idusuario);
         User EditUser(User user);
+        void InsertarEmpleado(User user);
+        List<User> GetEmpleados();
+        void EliminarEmpleado(int idusuario);
         //User EditUser(User user, String passant, String passnue1);
 
         #endregion
 
         #region PERROS
 
-        List<Perro> GetPerrosIdUser(int idusu);
+        List<Perro> GetPerrosByIdUser(int idusu);
         Perro GetPerroId(int idperro);
         Perro InsertarPerro(Perro perro);
         Perro EditarPerro(Perro perro);
@@ -44,9 +47,13 @@ namespace GuauHouse.Repositories
         #region RESERVAS
 
         void InsertarReserva(Reserva reserva);
-        List<ReservaUsuario> GetReservasIdUsuario(int idusu);
-        ReservaUsuario GetReservaId(int idreserva);
+        List<ReservaUsuario> GetReservasUsuarioByIdUsuario(int idusu);
+        ReservaUsuario GetReservaUsuarioById(int idreserva);
+        Reserva GetReservaById(int idreserva);
         void EditarReserva(Reserva reserva);
+        void EliminarReserva(int idreserva);
+        List<ReservaUsuario> GetReservasUsuarioByDay();
+
         #endregion
     }
 }

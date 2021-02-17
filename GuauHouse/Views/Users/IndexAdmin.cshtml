@@ -1,4 +1,42 @@
-﻿<h1>Index de Admin</h1>
+﻿@model List<User>
+<h1 style="color: cornflowerblue">Lista de empleados</h1>
+<a asp-controller="Users" asp-action="InsertarEmpleado" class="btn" style="background-color: cornflowerblue">Nuevo empleado</a>
+<div class="container-fluid mt-5" style="width: 65%">
+    <table class="table table-info align-baseline" style="background-color: rgba(240, 248, 255, 0.55)">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Usuario</th>
+                <th>DNI</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Imagen</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (User user in Model)
+            {
+                <tr>
+                    <td>@user.Nombre</td>
+                    <td>@user.Apellidos</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Dni</td>
+                    <td>@user.Email</td>
+                    <td>@user.Telefono</td>
+                    <td>
+                        <img src="~/images/@user.Imagen" style="width: 120px; height: 120px" alt="No hay imagen" />
+                    </td>
+                    <td>
+                        <a asp-controller="Users" asp-action="DatosEmpleado"
+                           asp-route-idusuario="@user.IdUsuario" class="btn" style="background-color: lightseagreen">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 @section styles
 {
     <style>

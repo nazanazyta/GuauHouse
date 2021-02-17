@@ -103,6 +103,27 @@ namespace GuauHouse.Repositories
             return usuario;
         }
 
+        public void InsertarEmpleado(User user)
+        {
+            user.IdUsuario = this.GetMaxId("Usuarios");
+            user.Rol = 3;
+            user.FechaAlta = DateTime.Now;
+            this.context.Usuarios.Add(user);
+            this.context.SaveChanges();
+        }
+
+        public List<User> GetEmpleados()
+        {
+            return this.context.Usuarios.Where(x => x.Rol == 3).ToList();
+        }
+
+        public void EliminarEmpleado(int idusuario)
+        {
+            User usuario = this.GetUserById(idusuario);
+            this.context.Usuarios.Remove(usuario);
+            this.context.SaveChanges();
+        }
+
         //public User EditUser(User user, String passant, String passnue1)
         //{
         //    User usuario = this.GetUserById(user.IdUsuario);
@@ -134,7 +155,7 @@ namespace GuauHouse.Repositories
         #endregion
 
         #region PERROS
-        public List<Perro> GetPerrosIdUser(int idusu)
+        public List<Perro> GetPerrosByIdUser(int idusu)
         {
             //this.context.Usuarios.Where(x => x.UserName == username).Select(z => z.IdUsuario);
             //return this.context.Perros.Where(x => x.IdUsu == iduser).Select(z => z.Nombre).ToList();
@@ -145,11 +166,6 @@ namespace GuauHouse.Repositories
             //return (from datos in this.context.Perros
             //        where datos.IdUsu == iduser
             //        select datos.Nombre).ToList();
-        }
-
-        public List<Perro> GetPerrosIdUsuario(int idusuario)
-        {
-            return this.context.Perros.Where(z => z.IdUsu == idusuario).ToList();
         }
 
         public Perro GetPerroId(int idperro)
@@ -193,19 +209,44 @@ namespace GuauHouse.Repositories
             this.context.SaveChanges();
         }
 
-        public List<ReservaUsuario> GetReservasIdUsuario(int idusu)
+        public List<ReservaUsuario> GetReservasUsuarioByIdUsuario(int idusu)
         {
             return this.context.ReservasUsuario.Where(x => x.IdUsu == idusu).ToList();
         }
 
-        public ReservaUsuario GetReservaId(int idreserva)
+        public ReservaUsuario GetReservaUsuarioById(int idreserva)
         {
             return this.context.ReservasUsuario.SingleOrDefault(x => x.IdReserva == idreserva);
         }
 
+        public Reserva GetReservaById(int idreserva)
+        {
+            return this.context.Reservas.SingleOrDefault(x => x.IdReserva == idreserva);
+        }
+
         public void EditarReserva(Reserva reserva)
         {
+            Reserva res = this.GetReservaById(reserva.IdReserva);
+            res.IdPer = reserva.IdPer;
+            if (reserva.Fecha >= DateTime.Now)
+            {
+                res.Fecha = reserva.Fecha;
+            }
+            res.Turno = reserva.Turno;
+            res.FechaAlta = DateTime.Now;
+            this.context.SaveChanges();
+        }
 
+        public void EliminarReserva(int idreserva)
+        {
+            Reserva reserva = this.GetReservaById(idreserva);
+            this.context.Reservas.Remove(reserva);
+            this.context.SaveChanges();
+        }
+
+        public List<ReservaUsuario> GetReservasUsuarioByDay()
+        {
+            return this.context.ReservasUsuario.Where(x => x.Fecha.Day == DateTime.Now.Day).OrderBy(z => z.Turno).ToList();
         }
         #endregion
     }

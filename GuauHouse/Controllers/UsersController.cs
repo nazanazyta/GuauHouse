@@ -27,7 +27,7 @@ namespace GuauHouse.Controllers
         [AuthorizeUser]
         public IActionResult Perfil()
         {
-            return View(this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
+            return View(this.repo.GetPerrosByIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
         }
 
         [AuthorizeUser]
@@ -80,16 +80,19 @@ namespace GuauHouse.Controllers
             //}
         }
 
+        [AuthorizeUser]
         public IActionResult ListaPerros()
         {
-            return View(this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
+            return View(this.repo.GetPerrosByIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
         }
 
+        [AuthorizeUser]
         public IActionResult InsertarPerro()
         {
             return View();
         }
 
+        [AuthorizeUser]
         [HttpPost]
         public async Task<IActionResult> InsertarPerro(Perro perro, IFormFile fichero)
         {
@@ -104,11 +107,13 @@ namespace GuauHouse.Controllers
             return RedirectToAction("Perfil", "Users");
         }
 
+        [AuthorizeUser]
         public IActionResult DatosPerro(int idperro)
         {
             return View(this.repo.GetPerroId(idperro));
         }
 
+        [AuthorizeUser]
         [HttpPost]
         public async Task<IActionResult> DatosPerro(Perro perro, IFormFile fichero)
         {
@@ -121,48 +126,115 @@ namespace GuauHouse.Controllers
             return View(p);
         }
 
+        [AuthorizeUser]
         public IActionResult EliminarPerro(int idperro)
         {
             this.repo.BorrarPerro(idperro);
             return RedirectToAction("ListaPerros", "Users");
         }
 
-        public IActionResult NuevaReserva()
+        [AuthorizeUser]
+        public IActionResult InsertarReserva()
         {
-            return View(this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
+            return View(this.repo.GetPerrosByIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
         }
 
+        [AuthorizeUser]
         [HttpPost]
-        public IActionResult NuevaReserva(Reserva reserva)
+        public IActionResult InsertarReserva(Reserva reserva)
         {
             this.repo.InsertarReserva(reserva);
             return RedirectToAction("ListaReservas", "Users");
         }
 
+        [AuthorizeUser]
         public IActionResult ListaReservas()
         {
-            //List<Perro> perros = this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.Name)));
-            //ViewData["perros"] = perros;
-            return View(this.repo.GetReservasIdUsuario(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
+            List<Perro> perros = this.repo.GetPerrosByIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
+            ViewData["perros"] = perros;
+            return View(this.repo.GetReservasUsuarioByIdUsuario(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
             //return View();
         }
 
+        [AuthorizeUser]
         public IActionResult DatosReserva(int idreserva)
         {
-            ViewData["perros"] = this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
-            return View(this.repo.GetReservaId(idreserva));
+            ViewData["perros"] = this.repo.GetPerrosByIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
+            return View(this.repo.GetReservaUsuarioById(idreserva));
+        }
+
+        [AuthorizeUser]
+        [HttpPost]
+        public IActionResult DatosReserva(Reserva reserva)
+        {
+            this.repo.EditarReserva(reserva);
+            return RedirectToAction("ListaReservas", "Users");
+        }
+
+        [AuthorizeUser]
+        public IActionResult EliminarReserva(int idreserva)
+        {
+            this.repo.EliminarReserva(idreserva);
+            return RedirectToAction("ListaReservas", "Users");
         }
 
         [AuthorizeAdmin]
         public IActionResult IndexAdmin()
         {
+            return View(this.repo.GetEmpleados());
+        }
+
+        [AuthorizeAdmin]
+        public IActionResult InsertarEmpleado()
+        {
             return View();
+        }
+
+        [AuthorizeAdmin]
+        [HttpPost]
+        public async Task<IActionResult> InsertarEmpleado(User user, IFormFile fichero)
+        {
+            if (fichero != null)
+            {
+                await this.upload.UploadFileAsync(fichero, Folders.Images);
+                user.Imagen = fichero.FileName;
+            }
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            user.IdUsuario = int.Parse(userId);
+            this.repo.InsertarEmpleado(user);
+            return RedirectToAction("IndexAdmin", "Users");
+        }
+
+        [AuthorizeAdmin]
+        public IActionResult DatosEmpleado(int idusuario)
+        {
+            return View(this.repo.GetUserById(idusuario));
+        }
+
+        [AuthorizeAdmin]
+        [HttpPost]
+        public async Task<IActionResult> DatosEmpleado(User user, IFormFile fichero) 
+        {
+            if (fichero != null)
+            {
+                await this.upload.UploadFileAsync(fichero, Folders.Images);
+                user.Imagen = fichero.FileName;
+            }
+            User usuario = this.repo.EditUser(user);
+            return View(usuario);
+        }
+
+        [AuthorizeAdmin]
+        public IActionResult EliminarEmpleado(int idusuario)
+        {
+            this.repo.EliminarEmpleado(idusuario);
+            return RedirectToAction("IndexAdmin", "Users");
         }
 
         [AuthorizeEmpleado]
         public IActionResult IndexEmpleado()
         {
-            return View();
+            return View(this.repo.GetReservasUsuarioByDay());
         }
     }
 }

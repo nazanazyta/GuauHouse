@@ -20,8 +20,9 @@ namespace GuauHouse.Controllers
             this.repo = repo;
         }
 
-        public IActionResult Login()
+        public IActionResult Login(String error)
         {
+            ViewData["mensaje"] = error;
             return View();
         }
 
@@ -32,8 +33,9 @@ namespace GuauHouse.Controllers
             if (user == null)
             {
                 //ARREGLO!: Mandar a otra vista
-                ViewData["mensaje"] = "Usuario/Password incorrectos";
-                return View();
+                //ViewData["mensaje"] = "Usuario/Password incorrectos";
+                //return RedirectToAction("Login", "Identity", new { error = "Usuario/Password incorrectos" });
+                return RedirectToAction("ErrorLogin", "Identity");
             }
             else
             {
@@ -71,6 +73,11 @@ namespace GuauHouse.Controllers
             }
         }
 
+        public IActionResult ErrorLogin()
+        {
+            return View();
+        }
+
         public IActionResult AccesoDenegado()
         {
             return View();
@@ -99,10 +106,15 @@ namespace GuauHouse.Controllers
             }
             else
             {
-                ViewData["mensaje"] = "Ese usuario ya existe";
-                ViewData["color"] = "lightcoral";
-                return View();
+                //ViewData["mensaje"] = "Ese usuario ya existe";
+                //ViewData["color"] = "lightcoral";
+                return RedirectToAction("ErrorRegistro", "Identity");
             }
+        }
+
+        public IActionResult ErrorRegistro()
+        {
+            return View();
         }
     }
 }

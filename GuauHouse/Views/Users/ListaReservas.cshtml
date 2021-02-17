@@ -5,6 +5,15 @@
 
 <h1 style="color: cornflowerblue">Lista de reservas de @Context.User.Identity.Name</h1>
 <a asp-controller="Users" asp-action="Perfil" class="btn" style="background-color: mediumpurple">Volver al perfil</a>
+
+@if (perros.Count() == 0)
+{
+    <button type="button" class="btn btn-primary" onclick="alert('Para hacer una reserva necesitas UN PERRO!')">Nueva</button>
+}
+else
+{
+    <a asp-controller="Users" asp-action="InsertarReserva" class="btn" style="background-color: cornflowerblue">Nueva reserva</a>
+}
 <div class="container-fluid w-50 mt-5">
     <table class="table table-sm table-info align-baseline" style="background-color: rgba(240, 248, 255, 0.55)">
         <thead>

@@ -1,4 +1,27 @@
-﻿<h1>Index del EMPLEADO</h1>
+﻿@model List<ReservaUsuario>
+
+<h1>Lista del día</h1>
+<div class="container-fluid w-50 mt-5">
+    <table class="table table-info align-baseline" style="background-color: rgba(240, 248, 255, 0.55)">
+        <thead>
+            <tr>
+                <th>Perro</th>
+                <th>Turno</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ReservaUsuario res in Model)
+            {
+                <tr>
+                    <td>@res.NombrePerro</td>
+                    <td>@res.Turno</td>
+                    <td>@res.Fecha</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 @section styles
 {
     <style>
