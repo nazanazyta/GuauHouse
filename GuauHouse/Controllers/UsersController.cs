@@ -104,7 +104,7 @@ namespace GuauHouse.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             perro.IdUsu = int.Parse(userId);
             Perro p = this.repo.InsertarPerro(perro);
-            return RedirectToAction("Perfil", "Users");
+            return RedirectToAction("ListaPerros", "Users");
         }
 
         [AuthorizeUser]
