@@ -211,7 +211,7 @@ namespace GuauHouse.Repositories
 
         public List<ReservaUsuario> GetReservasUsuarioByIdUsuario(int idusu)
         {
-            return this.context.ReservasUsuario.Where(x => x.IdUsu == idusu).ToList();
+            return this.context.ReservasUsuario.Where(x => x.IdUsu == idusu).OrderBy(x => x.Fecha).ThenBy(x => x.Turno).ToList();
         }
 
         public ReservaUsuario GetReservaUsuarioById(int idreserva)

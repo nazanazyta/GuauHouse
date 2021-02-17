@@ -39,8 +39,8 @@ namespace GuauHouse.Controllers
         [HttpPost]
         public IActionResult Contacto(String nombre, String email, String asunto, String mensaje)
         {
-            this.MailService.SendEmail(nombre, email, asunto, mensaje);
-            ViewData["mensaje"] = "Correo enviado. Te responderemos lo antes posible. Gracias";
+            this.MailService.SendEmail(email, asunto, mensaje);
+            ViewData["mensaje"] = "Correo enviado " + nombre + ". Te responderemos lo antes posible. Gracias";
             return View();
         }
     }

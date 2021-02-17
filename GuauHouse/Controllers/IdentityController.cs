@@ -1,4 +1,5 @@
-﻿using GuauHouse.Models;
+﻿using GuauHouse.Helpers;
+using GuauHouse.Models;
 using GuauHouse.Repositories;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -14,10 +15,12 @@ namespace GuauHouse.Controllers
     public class IdentityController : Controller
     {
         IRepositoryGuauHouse repo;
+        MailService MailService;
 
-        public IdentityController(IRepositoryGuauHouse repo)
+        public IdentityController(IRepositoryGuauHouse repo, MailService mailservice)
         {
             this.repo = repo;
+            this.MailService = mailservice;
         }
 
         public IActionResult Login(String error)
@@ -102,6 +105,10 @@ namespace GuauHouse.Controllers
                 User u = this.repo.InsertUser(user);
                 ViewData["mensaje"] = "Usuario registrado correctamente";
                 ViewData["color"] = "aquamarine";
+                //MAIL
+                String asunto = "Registro en GuauHouse";
+                String mensaje = "Te damos la bienvenida a GuauHouse. Haz cuanto antes tu reserva ;) Un saludo";
+                this.MailService.SendConfirmation(u.Email, asunto, mensaje);
                 return View();
             }
             else

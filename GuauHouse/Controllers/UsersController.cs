@@ -144,6 +144,7 @@ namespace GuauHouse.Controllers
         public IActionResult InsertarReserva(Reserva reserva)
         {
             this.repo.InsertarReserva(reserva);
+            //MAIL
             return RedirectToAction("ListaReservas", "Users");
         }
 
@@ -168,6 +169,7 @@ namespace GuauHouse.Controllers
         public IActionResult DatosReserva(Reserva reserva)
         {
             this.repo.EditarReserva(reserva);
+            //MAIL
             return RedirectToAction("ListaReservas", "Users");
         }
 
@@ -175,6 +177,7 @@ namespace GuauHouse.Controllers
         public IActionResult EliminarReserva(int idreserva)
         {
             this.repo.EliminarReserva(idreserva);
+            //MAIL
             return RedirectToAction("ListaReservas", "Users");
         }
 
