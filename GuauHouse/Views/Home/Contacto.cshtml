@@ -1,0 +1,45 @@
+﻿<div class="container-fluid">
+    <div class="mx-auto mb-5" style="width: 70%">
+        <h1>
+            Contacta con nosotros para cualquier duda
+        </h1>
+    </div>
+    <div class="mx-auto mb-5" style="width: 50%">
+        <p style="font-size: 20px; text-align: justify">
+            Si tienes dudas sobre los precios, sobre cómo trabajamos, si puedes
+            venir a visitarnos o cualquier otra pregunta, no dudes en contactarnos
+            a través de este formulario. Pon tus datos reales para que podamos
+            contactar contigo ;)
+        </p>
+        <p style="font-size: 20px; text-align: center; background-color: lightgreen" class="rounded">@ViewData["mensaje"]</p>
+    </div>
+    <div class="mx-auto" style="width: 70%; align-content: center; margin-top: 5rem">
+        <form method="post" class="text-center m-auto" style="width: 35%">
+            <div class="form-outline mb-4">
+                <input type="text" name="nombre"
+                       class="form-control" placeholder="Nombre" required />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="email" name="email"
+                       class="form-control" placeholder="Email" required />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" name="asunto"
+                       class="form-control" placeholder="Asunto" required />
+            </div>
+            <div class="form-outline mb-4">
+                <textarea type="text" class="form-control" name="mensaje" rows="8" placeholder="Escríbenos aquí tus dudas o sugerencias"></textarea>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Send</button>
+        </form>
+    </div>
+</div>
+
+@section styles
+{
+    <style>
+        body {
+            background-size: cover !important;
+        }
+    </style>
+}

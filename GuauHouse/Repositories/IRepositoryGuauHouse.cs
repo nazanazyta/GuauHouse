@@ -4,6 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+#region VISTAS
+
+//CREATE VIEW reservasdeusuario
+//AS
+//	SELECT R.ID, R.IDUSU, R.IDPER, P.NOMBRE AS NOMBREPERRO, R.FECHA, R.TURNO, R.FECHA_ALTA
+//	FROM PERROS P INNER JOIN RESERVAS R ON (P.ID = R.IDPER)
+//GO
+
+#endregion
+
 namespace GuauHouse.Repositories
 {
     public interface IRepositoryGuauHouse
@@ -34,6 +44,9 @@ namespace GuauHouse.Repositories
         #region RESERVAS
 
         void InsertarReserva(Reserva reserva);
+        List<ReservaUsuario> GetReservasIdUsuario(int idusu);
+        ReservaUsuario GetReservaId(int idreserva);
+        void EditarReserva(Reserva reserva);
         #endregion
     }
 }

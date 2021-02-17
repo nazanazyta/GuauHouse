@@ -1,25 +1,35 @@
 ﻿@model List<Perro>
 <h1 style="color: cornflowerblue">Lista de perros de @Context.User.Identity.Name</h1>
-<a asp-controller="Users" asp-action="Perfil" class="btn btn-info">Volver a perfil</a>
+<a asp-controller="Users" asp-action="Perfil" class="btn" style="background-color: mediumpurple">Volver a perfil</a>
 <div class="container-fluid w-50 mt-5">
     <table class="table table-sm table-info align-baseline" style="background-color: rgba(240, 248, 255, 0.55)">
-        @foreach (Perro p in Model)
-        {
+        <thead>
             <tr>
-                @*<td>@p.IdPerro</td>*@
-                <td>@p.Nombre</td>
-                <td>@p.Estatura</td>
-                <td>
-                    <img src="~/images/@p.Foto" style="width: 120px; height: 120px" alt="No hay imagen" />
-                </td>
-                <td>
-                    <a asp-controller="Users" asp-action="DatosPerro"
-                       asp-route-idperro="@p.IdPerro" class="btn btn-outline-secondary">Editar</a>
-                    @*<a asp-controller="Users" asp-action="EliminarPerro"
-                       asp-route-idperro="@p.IdPerro" class="btn btn-outline-danger">Eliminar</a>*@
-                </td>
+                <th>Perro</th>
+                <th>Estatura</th>
+                <th>Foto</th>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (Perro p in Model)
+            {
+                <tr>
+                    @*<td>@p.IdPerro</td>*@
+                    <td>@p.Nombre</td>
+                    <td>@p.Estatura</td>
+                    <td>
+                        <img src="~/images/@p.Foto" style="width: 120px; height: 120px" alt="No hay imagen" />
+                    </td>
+                    <td>
+                        <a asp-controller="Users" asp-action="DatosPerro"
+                           asp-route-idperro="@p.IdPerro" class="btn" style="background-color: lightseagreen">Editar</a>
+                        @*<a asp-controller="Users" asp-action="EliminarPerro"
+                        asp-route-idperro="@p.IdPerro" class="btn btn-outline-danger">Eliminar</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
 

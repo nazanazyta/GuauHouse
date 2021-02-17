@@ -29,6 +29,7 @@ namespace GuauHouse
         {
             services.AddSingleton<PathProvider>();
             services.AddSingleton<UploadService>();
+            services.AddSingleton<MailService>();
             services.AddAuthentication(
                 options =>
                 {

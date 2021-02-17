@@ -1,19 +1,25 @@
-﻿@model List<Perro>
+﻿@model ReservaUsuario
 @{
+    List<Perro> perros = ViewData["perros"] as List<Perro>;
     DateTime hoy = new DateTime();
     DateTime manana = hoy.AddDays(1);
     DateTime mes = hoy.AddDays(30);
 }
-
-<h1 style="color: cornflowerblue">Nueva reservas para @Context.User.Identity.Name</h1>
+<h1 style="color: lightseagreen">Editar datos de Reserva</h1>
+<div class="container-fluid mt-5" style="text-align: left; width: 28%">
+    <h4><b>Perro:</b> @Model.NombrePerro</h4>
+    <h4><b>Turno:</b> @Model.Turno</h4>
+    <h4><b>Fecha de reserva:</b> @Model.Fecha</h4>
+</div><br />
 <a asp-controller="Users" asp-action="Perfil" class="btn" style="background-color: mediumpurple">Volver al perfil</a>
 <a asp-controller="Users" asp-action="ListaReservas" class="btn" style="background-color: cornflowerblue">Volver a lista de reservas</a>
-<div class="container-fluid w-25 mt-4">
+<div class="container-fluid w-25 mt-5">
     <form method="post" style="text-align: left">
         <input type="hidden" name="idusu" value="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value" />
+        <input type="hidden" name="idreserva" value="@Model.IdReserva" />
         <label>Elige el perro</label><br />
         <select name="idper" class="form-control">
-            @foreach (Perro p in Model)
+            @foreach (Perro p in perros)
             {
                 <option value="@p.IdPerro">@p.Nombre</option>
             }
@@ -28,7 +34,7 @@
         <label>Elige el día</label><br />
         <input type="date" name="fecha" value="@hoy"
                min="@manana" max="@mes">
-        <button type="submit" class="btn btn-success">Nuevo</button>
+        <button type="submit" class="btn btn-success">Editar</button>
     </form>
 </div>
 

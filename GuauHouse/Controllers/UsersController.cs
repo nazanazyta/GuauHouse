@@ -127,11 +127,6 @@ namespace GuauHouse.Controllers
             return RedirectToAction("ListaPerros", "Users");
         }
 
-        public IActionResult ListaReservas()
-        {
-            return View();
-        }
-
         public IActionResult NuevaReserva()
         {
             return View(this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
@@ -142,6 +137,20 @@ namespace GuauHouse.Controllers
         {
             this.repo.InsertarReserva(reserva);
             return RedirectToAction("ListaReservas", "Users");
+        }
+
+        public IActionResult ListaReservas()
+        {
+            //List<Perro> perros = this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirstValue(ClaimTypes.Name)));
+            //ViewData["perros"] = perros;
+            return View(this.repo.GetReservasIdUsuario(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)));
+            //return View();
+        }
+
+        public IActionResult DatosReserva(int idreserva)
+        {
+            ViewData["perros"] = this.repo.GetPerrosIdUser(int.Parse(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value));
+            return View(this.repo.GetReservaId(idreserva));
         }
 
         [AuthorizeAdmin]

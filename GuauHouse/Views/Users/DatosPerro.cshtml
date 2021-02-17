@@ -1,7 +1,7 @@
 ﻿@model Perro
-<h1 style="color: cornflowerblue">Editar datos de @Model.Nombre</h1>
-<a asp-controller="Users" asp-action="ListaPerros" class="btn btn-info">Volver a lista de perros</a>
-<a asp-controller="Users" asp-action="Perfil" class="btn btn-secondary">Volver al perfil</a>
+<h1 style="color: lightseagreen">Editar datos de @Model.Nombre</h1>
+<a asp-controller="Users" asp-action="Perfil" class="btn" style="background-color: mediumpurple">Volver al perfil</a>
+<a asp-controller="Users" asp-action="ListaPerros" class="btn" style="background-color: cornflowerblue">Volver a lista de perros</a>
 <div class="container-fluid w-50 mt-5">
     <form method="post" style="text-align: left" enctype="multipart/form-data">
         <input type="hidden" name="idperro" value="@Model.IdPerro" />
@@ -58,7 +58,7 @@
         </table>
         <button type="submit" class="btn btn-success">Editar datos</button>
         @* MODAL DE CONFIRMACIÓN*@ 
-        <button class="btn btn-danger"
+        <button class="btn" style="background-color: lightcoral"
                 data-bs-toggle="modal" type="button"
                 data-bs-target="#confirmation">
             Eliminar perro

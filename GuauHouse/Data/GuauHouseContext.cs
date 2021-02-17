@@ -16,5 +16,6 @@ namespace GuauHouse.Data
         public DbSet<Perro> Perros { get; set; }
         public DbSet<Reserva> Reservas { get; set; }
         public DbSet<Rol> Roles { get; set; }
+        public DbSet<ReservaUsuario> ReservasUsuario { get; set; }
     }
 }

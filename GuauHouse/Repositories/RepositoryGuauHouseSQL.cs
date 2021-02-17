@@ -5,6 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+#region VISTAS
+
+//CREATE VIEW reservasdeusuario
+//AS
+//	SELECT R.ID, R.IDUSU, R.IDPER, P.NOMBRE AS NOMBREPERRO, R.FECHA, R.TURNO, R.FECHA_ALTA
+//	FROM PERROS P INNER JOIN RESERVAS R ON (P.ID = R.IDPER)
+//GO
+
+#endregion
+
 namespace GuauHouse.Repositories
 {
     public class RepositoryGuauHouseSQL: IRepositoryGuauHouse
@@ -42,7 +52,14 @@ namespace GuauHouse.Repositories
             }
             else
             {
-                return 1;
+                int id = (from datos in this.context.Reservas
+                          select datos.IdReserva).Count();
+                if (id == 0)
+                {
+                    return 1;
+                }
+                return (from datos in this.context.Reservas
+                        select datos.IdReserva).Max() + 1;
             }
         }
 
@@ -174,6 +191,21 @@ namespace GuauHouse.Repositories
             reserva.FechaAlta = DateTime.Now;
             this.context.Reservas.Add(reserva);
             this.context.SaveChanges();
+        }
+
+        public List<ReservaUsuario> GetReservasIdUsuario(int idusu)
+        {
+            return this.context.ReservasUsuario.Where(x => x.IdUsu == idusu).ToList();
+        }
+
+        public ReservaUsuario GetReservaId(int idreserva)
+        {
+            return this.context.ReservasUsuario.SingleOrDefault(x => x.IdReserva == idreserva);
+        }
+
+        public void EditarReserva(Reserva reserva)
+        {
+
         }
         #endregion
     }

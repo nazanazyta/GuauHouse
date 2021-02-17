@@ -1,5 +1,38 @@
-﻿<h1 style="color: cornflowerblue">Lista de reservas de @Context.User.Identity.Name</h1>
-<a asp-controller="Users" asp-action="Perfil" class="btn btn-info">Volver al perfil</a>
+﻿@model List<ReservaUsuario>
+@{
+    List<Perro> perros = ViewData["perros"] as List<Perro>;
+}
+
+<h1 style="color: cornflowerblue">Lista de reservas de @Context.User.Identity.Name</h1>
+<a asp-controller="Users" asp-action="Perfil" class="btn" style="background-color: mediumpurple">Volver al perfil</a>
+<div class="container-fluid w-50 mt-5">
+    <table class="table table-sm table-info align-baseline" style="background-color: rgba(240, 248, 255, 0.55)">
+        <thead>
+            <tr>
+                <th>Perro</th>
+                <th>Fecha</th>
+                <th>Turno</th>
+                <th>Fecha de alta</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ReservaUsuario res in Model)
+            {
+                <tr>
+                    <td><b>@res.NombrePerro</b></td>
+                    <td><b>@res.Fecha</b></td>
+                    <td><b>@res.Turno</b></td>
+                    <td>@res.FechaAlta</td>
+                    <td>
+                        <a asp-controller="Users" asp-action="DatosReserva"
+                           asp-route-idreserva="@res.IdReserva" class="btn" style="background-color: lightseagreen">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @section styles
 {
